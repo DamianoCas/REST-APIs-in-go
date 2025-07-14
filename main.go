@@ -3,11 +3,13 @@ package main
 import (
 	"net/http"
 
+	"example.com/investment-calulator/db"
 	"example.com/investment-calulator/models"
 	"github.com/gin-gonic/gin"
 )
 
 func main () {
+	db.InitDB()
 	server := gin.Default()
 
 	server.GET("/events", getEvents)
@@ -33,5 +35,7 @@ func createEvent(context *gin.Context) {
 
 	event.ID = 1
 	event.UserID = 1
+
+	event.Save()
 	context.JSON(http.StatusCreated, gin.H{"message": "Event created!", "event": event})
 }
