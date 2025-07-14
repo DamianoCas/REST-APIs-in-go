@@ -6,7 +6,6 @@ import (
 
 	"example.com/investment-calulator/models"
 	"github.com/gin-gonic/gin"
-	"golang.org/x/text/message"
 )
 
 func getEvents(context *gin.Context) {
